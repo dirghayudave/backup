@@ -1,5 +1,10 @@
 #!/bin/bash
 #
+# Project Name and Environment set 
+# example(name): website, showbooks
+# example(Env): Prod, Dev, Stage, Beta or Test
+PROJNAME=
+PROJENV=
 #Check s3 path
 CHYEAR=$(date +"%Y")
 CHMONTH=$(date +"%m")
@@ -17,4 +22,4 @@ BUKTNM="my-project-bkp"
 cd $CODEDUMP/../
 zip -r $TMPPATH/code-$NAME.zip html
 #
-aws s3 mv $TMPPATH/code-$NAME.zip s3://$BUKTNM/code/"$CHYEAR"/"$CHMONTH"/"$CHDATE"/"$CHHOUR"/
+aws s3 mv $TMPPATH/code-$NAME.zip s3://$BUKTNM/$PROJNAME-$PROJENV/code/"$CHYEAR"/"$CHMONTH"/"$CHDATE"/"$CHHOUR"/
