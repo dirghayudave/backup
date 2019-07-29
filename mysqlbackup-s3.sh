@@ -1,5 +1,10 @@
 #!/bin/bash
 #
+# Project Name and Environment set 
+# example(name): website, showbooks
+# example(Env): Prod, Dev, Stage, Beta or Test
+PROJNAME=
+PROJENV=
 #Check s3 path
 CHYEAR=$(date +"%Y")
 CHMONTH=$(date +"%m")
@@ -23,5 +28,5 @@ do
 $MYSQLDUMP -u $MYBKPU  -p$PASS $dbase -h $HOSTN > $MYSQLDPATH/$dbase-$NAME.sql
 zip $MYSQLDPATH/$dbase-$NAME.sql.zip $MYSQLDPATH/$dbase-$NAME.sql
 rm -rf $MYSQLDPATH/$dbase-$NAME.sql
-aws s3 mv $MYSQLDPATH/$dbase-$NAME.sql.zip s3://$BUKTNM/database/"$CHYEAR"/"$CHMONTH"/"$CHDATE"/"$CHHOUR"/
+aws s3 mv $MYSQLDPATH/$dbase-$NAME.sql.zip s3://$BUKTNM/$PROJNAME-$PROJENV/database/"$CHYEAR"/"$CHMONTH"/"$CHDATE"/"$CHHOUR"/
 done
