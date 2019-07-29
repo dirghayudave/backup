@@ -1,0 +1,9 @@
+#Crontab Sample for code bakcup
+
+0 14 * * * sh /scripts/codebackup.sh
+0 21 * * * sh /scripts/codebackup.sh
+
+#Crontab Sample for database backup
+
+0 14 * * * sh /scripts/sqlbackup.sh
+0 21 * * * sh /scripts/sqlbackup.sh
